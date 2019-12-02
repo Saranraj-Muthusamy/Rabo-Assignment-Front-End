@@ -1,0 +1,35 @@
+
+<div style="text-align:center">
+  <h2>Rabo frontend assignment csv visualization</h2>
+    <input type="file" (change)="onFileSelect($event.target)" name="myfile" accept=”.csv”>
+</div>
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <!-- firstname Column -->
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> First name </th>
+    <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+  </ng-container>
+
+  <!-- surname Column -->
+  <ng-container matColumnDef="surName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Sur name </th>
+    <td mat-cell *matCellDef="let element"> {{element.surName}} </td>
+  </ng-container>
+
+  <!-- issuecount Column -->
+  <ng-container matColumnDef="issueCount">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Issue count </th>
+    <td mat-cell *matCellDef="let element"> {{element.issueCount}} </td>
+  </ng-container>
+
+  <!-- dob Column -->
+  <ng-container matColumnDef="dob">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Date of birth </th>
+    <td mat-cell *matCellDef="let element"> {{element.dob}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
